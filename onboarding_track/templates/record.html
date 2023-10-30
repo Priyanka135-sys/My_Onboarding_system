@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{%block content%}
+
+<h1>Employees Records</h1>
+
+<div class="card">
+    <h4class="card-header">
+        {{Employee_record.first_name}} {{Employee_record.last_name}}
+    <h4>
+    <div class="card-body">
+        <p class="card-text">
+        <ul>
+            <li>EMAIL:    {{Employee_record.email}}</li>
+            <li>DATE OF JOINING:    {{Employee_record.start_date}}</li>
+              
+              {%if Employee_record.is_onboarded%}
+              <li>JOINED/NOT: Onboarded</li>
+              {%else%}
+              <li>JOINED/NOT:
+              
+               Not Onboarded</li>
+               {%endif%}
+              
+            
+           
+        </ul>
+
+      </p>
+      
+    </div>
+
+    <a href="{% url 'home'%}" class="btn btn-secondary">
+        BACK
+      </a>
+
+      <a href="{% url 'allrecords'%}" class="btn btn-secondary">
+        Records
+      </a>
+
+      
+  </div>
+  
+{%endblock%}
+
